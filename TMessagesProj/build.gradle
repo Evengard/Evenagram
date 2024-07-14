@@ -52,10 +52,10 @@ def sentry_upload =  project.rootProject.file("sentry.properties").exists()
 def disableCMakeRelWithDebInfo = System.getenv("COMPILE_NATIVE") == null
 
 Properties properties
-def base64 = System.getenv("LOCAL_PROPERTIES")
-if (base64 != null && !base64.isBlank()) {
+def localProps = System.getenv("LOCAL_PROPERTIES")
+if (localProps != null && !localProps.isBlank()) {
     properties = new Properties()
-    properties.load(new ByteArrayInputStream(Base64.decoder.decode(base64)))
+    properties.load(new StringReader(localProps))
 } else if (project.rootProject.file("local.properties").exists()) {
     properties = new Properties()
     properties.load(project.rootProject.file("local.properties").newDataInputStream())
@@ -86,7 +86,7 @@ android {
     compileSdkVersion 33
     ndkVersion rootProject.ext.ndkVersion
 
-    defaultConfig.applicationId = "xyz.nextalone.nagram"
+    defaultConfig.applicationId = "xyz.evengard.evenagram"
 
     splits {
 
@@ -240,7 +240,7 @@ android {
 
     applicationVariants.configureEach { variant ->
         variant.outputs.configureEach { output ->
-            String gramName = "Nagram"
+            String gramName = "Evenagram"
             String first = String.format("%s-v%s(%s)", gramName, versionName, versionCode)
             String name = outputFileName.replace("TMessagesProj", first)
             name = name.replace("-release", "")
@@ -386,7 +386,7 @@ sentry {
     org = "pagermaid"
 
     // The slug of the Sentry project to use for uploading proguard mappings/source contexts.
-    projectName = "nagram"
+    projectName = "evenagram"
 
     // The authentication token to use for uploading proguard mappings/source contexts.
     // WARNING: Do not expose this token in your build.gradle files, but rather set an environment
