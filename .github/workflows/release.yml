@@ -219,6 +219,9 @@ jobs:
         with:
           path: ~/.gradle
           key: gradle-${{ hashFiles('**/*.gradle') }}
+      - name: Replace google-services
+        run : |
+          printf '${{ secrets.GOOGLE_SERVICES }}' > TMessagesProj/google-services.json
       - name: Release Build
         run: |
           export LOCAL_PROPERTIES="${{ secrets.LOCAL_PROPERTIES }}"

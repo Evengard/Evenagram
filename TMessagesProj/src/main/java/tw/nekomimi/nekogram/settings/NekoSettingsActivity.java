@@ -1,7 +1,5 @@
 package tw.nekomimi.nekogram.settings;
 
-import static tw.nekomimi.nekogram.utils.UpdateUtil.channelUsernameTips;
-
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -332,9 +330,9 @@ public class NekoSettingsActivity extends BaseFragment {
                         case VIEW_TYPE_TEXT_LINK: {
                             TextSettingsCell textCell = (TextSettingsCell) holder.itemView;
                             if (position == channelRow) {
-                                textCell.setTextAndValue(LocaleController.getString("OfficialChannel", R.string.OfficialChannel), "@nagram_channel", true);
+                                textCell.setTextAndValue(LocaleController.getString("OfficialChannel", R.string.OfficialChannel), "@evenagram", true);
                             } else if (position == channelTipsRow) {
-                                textCell.setTextAndValue(LocaleController.getString("TipsChannel", R.string.TipsChannel), "@" + channelUsernameTips, true);
+                                textCell.setTextAndValue(LocaleController.getString("TipsChannel", R.string.TipsChannel), "@evenagram", true);
                             } else if (position == sourceCodeRow) {
                                 textCell.setText(LocaleController.getString("SourceCode", R.string.SourceCode), true);
                             } else if (position == translationRow) {
@@ -375,13 +373,13 @@ public class NekoSettingsActivity extends BaseFragment {
                 } else if (position == experimentRow) {
                     presentFragment(new NekoExperimentalSettingsActivity());
                 } else if (position == channelRow) {
-                    MessagesController.getInstance(currentAccount).openByUserName("nagram_channel", NekoSettingsActivity.this, 1);
+                    MessagesController.getInstance(currentAccount).openByUserName("evenagram", NekoSettingsActivity.this, 1);
                 } else if (position == channelTipsRow) {
-                    MessagesController.getInstance(currentAccount).openByUserName(channelUsernameTips, NekoSettingsActivity.this, 1);
+                    MessagesController.getInstance(currentAccount).openByUserName("evenagram", NekoSettingsActivity.this, 1);
                 } else if (position == translationRow) {
-                    Browser.openUrl(getParentActivity(), "https://xtaolabs.crowdin.com/nagram");
+                    Browser.openUrl(getParentActivity(), "https://github.com/Evengard/Evenagram");
                 } else if (position == sourceCodeRow) {
-                    Browser.openUrl(getParentActivity(), "https://github.com/NextAlone/Nagram");
+                    Browser.openUrl(getParentActivity(), "https://github.com/Evengard/Evenagram");
                 } else if (position == datacenterStatusRow) {
                     presentFragment(new DatacenterActivity(0));
                 } else if (position == importSettingsRow) {

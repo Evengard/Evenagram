@@ -4138,7 +4138,7 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
                 });
                 builder.addItem(LocaleController.getString("SwitchVersion", R.string.SwitchVersion), R.drawable.msg_retry,
                         (it) -> {
-                            Browser.openUrl(ProfileActivity.this.getParentActivity(), "https://github.com/NextAlone/Nagram/releases");
+                            Browser.openUrl(ProfileActivity.this.getParentActivity(), "https://github.com/Evengard/Evenagram/releases");
                             return Unit.INSTANCE;
                         });
 
@@ -11352,7 +11352,7 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
                     cell.getTextView().setMovementMethod(null);
                     cell.setBackground(Theme.getThemedDrawable(mContext, R.drawable.greydivider_bottom, Theme.key_windowBackgroundGrayShadow));
 
-                    cell.setText("Nagram v" + BuildConfig.VERSION_NAME + "(" + BuildConfig.VERSION_CODE + ") " + Build.SUPPORTED_ABIS[0].toLowerCase(Locale.ROOT) + " " + BuildConfig.BUILD_TYPE);
+                    cell.setText("Evenagram v" + BuildConfig.VERSION_NAME + "(" + BuildConfig.VERSION_CODE + ") " + Build.SUPPORTED_ABIS[0].toLowerCase(Locale.ROOT) + " " + BuildConfig.BUILD_TYPE);
 
                     cell.getTextView().setPadding(0, AndroidUtilities.dp(14), 0, AndroidUtilities.dp(14));
                     view = cell;
