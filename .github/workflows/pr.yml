@@ -216,10 +216,10 @@ jobs:
           key: gradle-${{ hashFiles('**/*.gradle') }}
       - name: Replace google-services
         run : |
-          printf '${{ secrets.GOOGLE_SERVICES }}' > TMessagesProj/google-services.json
+          printf '${{ secrets.EVENAGRAM_GOOGLE_SERVICES }}' > TMessagesProj/google-services.json
       - name: Debug Build
         run: |
-          export LOCAL_PROPERTIES="${{ secrets.LOCAL_PROPERTIES }}"
+          export LOCAL_PROPERTIES="${{ secrets.EVENAGRAM_LOCAL_PROPERTIES }}"
           export DEBUG_BUILD=true
           sed -i 's/signingConfig signingConfigs.release//g' TMessagesProj/build.gradle
           ./gradlew TMessagesProj:assembleRelease
