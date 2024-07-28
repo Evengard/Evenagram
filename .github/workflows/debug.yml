@@ -6,8 +6,6 @@ on:
       - dev
     paths-ignore:
       - '**.md'
-      - '.github/**'
-      - '!.github/workflows/debug.yml'
 
 jobs:
   check:
